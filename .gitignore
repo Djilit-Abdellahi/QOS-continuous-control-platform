@@ -1,0 +1,9 @@
+# Ignore data directories
+data/elastic
+
+# Ignore any environment-specific files or directories
+# Add here any other file or directory that is specific to your environment
+
+# Optional: Ignore files that may contain sensitive information
+# (Uncomment and modify the following line as per your directory structure)
+# conf/*.env
