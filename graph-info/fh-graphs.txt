@@ -1,0 +1,29 @@
+1. Average Network Capacity Over Time
+Go to Kibana > Visualize > Create new visualization > TSVB.
+Set the Data View to fh-* to include all relevant operator data.
+Under the Panel Options, set the Time Field to Date-de-mise-en-service.
+Move to the Data tab and under Metrics:
+Select the Aggregation as Average.
+Choose the Field Capacité-en-Mb/s.
+Under Panel Filter, write a query to filter the data if needed.
+In the Group by, select Terms and then select the OPERATEUR field to separate the data by each operator.
+2. Service Commissioning Timeline
+Follow the initial steps as above to set up TSVB.
+In the Metrics section:
+Choose Count as the aggregation to count the number of links commissioned over time.
+Group the data by Date Histogram and set the field to Date-de-mise-en-service for time grouping.
+Optionally, add a secondary grouping by Terms to separate the count by OPERATEUR.
+3. Technology Adoption Rate Comparison
+Set up TSVB as before.
+In the Metrics section:
+Choose Count or Unique Count if you're counting unique instances of technology adoption.
+Use the Group by feature to split the series by Type-de-liaison and then by OPERATEUR.
+4. Geographical Coverage Comparison
+Since TSVB doesn't support geospatial data directly, you might need to represent geographical coverage using a count of unique geo-points or distances.
+Under Metrics:
+Use Count as the aggregation to count unique coordonnées-A or coordonnées-B.
+Group by Terms for OPERATEUR.
+5. Frequency Band Usage
+Under Metrics:
+Select the appropriate aggregation to count or average the usage of frequency bands.
+Group by Terms for Bande-de-fréquences-et-fréquence-centrale and then by OPERATEUR.

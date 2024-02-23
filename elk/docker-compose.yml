@@ -5,43 +5,6 @@ networks:
     external: false
 
 services:
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.3
-    container_name: elasticsearch
-    networks:
-      - internal
-    mem_limit: 512m
-    cpus: '0.4'
-    environment:
-      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
-      - cluster.name=my-cluster
-      - xpack.security.enabled=false
-      - discovery.type=single-node
-    volumes:
-      - ./data/elastic/:/usr/share/elasticsearch/data/
-    ports:
-      - "9200:9200"
-    healthcheck:
-      test: ["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]
-      interval: 20s
-      timeout: 10s
-      retries: 20
-  kibana:
-    container_name: kibana
-    image: docker.elastic.co/kibana/kibana:8.11.3
-    mem_limit: 1g
-    networks:
-      - internal
-    cpus: '0.4'
-    environment:
-      - SERVER_NAME=my-kibana
-      - XPACK_MONITORING_ENABLED=false
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-    ports:
-      - "5601:5601"
-    depends_on:
-      elasticsearch:
-        condition: service_healthy
   logstash:
     container_name: logstash
     image: docker.elastic.co/logstash/logstash:8.11.3
@@ -57,6 +20,8 @@ services:
     ports:
       - "5044:5044"
       - "9600:9600"
-    depends_on:
-      elasticsearch:
-        condition: service_healthy    
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+  
+  

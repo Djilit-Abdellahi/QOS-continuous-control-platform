@@ -1,0 +1,25 @@
+TCH Drop Rate (Taux de déconnexion TCH):
+
+Condition: Vérifiez si le champ TCH Drop Rate est supérieur à 0.02 (2% en pourcentage).
+Action: Configurez une action telle que l'envoi d'une notification par e-mail avec les détails.
+
+CSSR (Taux de réussite de la configuration des appels):
+
+Condition: Vérifiez si le champ CSSR est inférieur à 0.98.
+Action: Informez l'équipe des opérations réseau via votre méthode préférée (e-mail, Slack, etc.).
+
+Taux de réussite de transfert (Handover Success Rate):
+
+Condition: Vérifiez si le champ Taux de réussite de transfert (%) est inférieur à 0.95.
+Action: Alertez l'équipe de maintenance pour évaluer les paramètres de transfert.
+
+
+Force du signal (Signal Strength):
+
+Condition: Créez des alertes distinctes pour Average UL Signal Strength(dbm) et Average DL Signal Strength(dbm) si l'un des deux est inférieur à -100.
+Action: Initiez une vérification des problèmes de signal.
+
+Volumes de trafic (Traffic Volumes):
+
+Condition: Vérifiez si les champs TCH total traffic number FR(erl) et TCH total traffic number HR(erl) dépassent des seuils prédéfinis indiquant un trafic élevé.
+Action: Alertez l'équipe de planification de la capacité pour une éventuelle mise à l'échelle.

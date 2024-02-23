@@ -1,0 +1,16 @@
+Nom-station,UL_MHz,DL_MHz,Coordonnées-géographiques,Débit-en-Mb/s,Fournisseur,Date-de-mise-en-service-des-porteuses,operateur
+Trarza,3810.618,6517.495,"17.86649, -14.65878",10,Comtec,2010,Mattel
+Brakna,4197.249,6222.204,"17.40473, -13.35872",4,ZTE,2013,Mattel
+Adrar,3716.715,6467.883,"27.88088, -0.28943",3,ZTE,2016,Mattel
+Tagant,3945.464,6590.773,"18.54675, -9.90181",20,NOKIA,2008,Mattel
+Guidimaka,3999.694,6523.855,"15.25573, -12.25479",4,Comtec,2017,Mattel
+Gorgol,3927.51,6566.519,"15.94962, -12.98961",8,Comtec,2009,Mauritel
+Assaba,3840.905,6307.107,"16.57995, -11.70682",9,ZTE,2014,Mauritel
+Hodh Ech Chargui,4006.124,6043.342,"18.6737, -7.09287",12,NOKIA,2018,Mauritel
+Hodh El Gharbi,4135.003,6515.564,"16.69121, -9.54509",4,Comtec,2011,Mauritel
+Inchiri,4064.345,6280.718,"19.51957, -14.84546",4,ZTE,2015,Mauritel
+Nouakchott,4075.577,6515.507,"18.07352, -15.95823",15,Comtec,2009,Chinguitel
+Nouadhibou,4038.38,6251.97,"20.94251, -17.03622",20,NOKIA,2012,Chinguitel
+Tiris Zemmour,4134.814,6101.709,"24.57737, -9.90181",7,ZTE,2016,Chinguitel
+Dakhlet Nouadhibou,3680.861,6445.214,"20.93879, -15.59433",19,NOKIA,2008,Chinguitel
+Senegal River,3879.098,6158.343,"15.61263, -13.23008",8,Comtec,2017,Chinguitel

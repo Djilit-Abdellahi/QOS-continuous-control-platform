@@ -1,0 +1,246 @@
+Mattel Dashboard:
+
+Network Performance Over Time: A line graph showing signal strength, downtime, and usage over time.
+Geographical Coverage: A map visualization depicting the spread and strength of network coverage across regions.
+Customer Service Metrics: Bar charts or pie charts displaying customer complaint types and resolutions.
+Data Usage Trends: Histograms or area charts showing patterns in data usage among customers.
+
+Mauritel Dashboard:
+
+Call Quality Metrics: Line or bar charts displaying dropped calls, call setup success rates, and voice quality.
+Data Transmission Rates: Graphs showing the evolution of data transmission rates over time.
+Network Utilization: A heatmap or bar chart illustrating peak and off-peak network utilization.
+Infrastructure Health: A dashboard section dedicated to the health status of physical infrastructure, like BTS stations.
+
+Chinguitel Dashboard:
+
+Subscriber Growth: A line chart showing the growth in subscriber numbers over time.
+Service Outages: A timeline or log display of network outages, their duration, and impacted areas.
+Revenue and Usage Analysis: Graphs depicting revenue streams correlated with usage patterns.
+QoS Compliance Tracking: Charts tracking compliance with quality of service standards set by regulatory bodies.
+
+
+
+For the BTS data (bts-* files):
+
+Deployment Timeline: A timeline or bar chart showing the 'Date mise en service' for each BTS, giving insights into network expansion over time.
+Frequency Distribution: Pie charts or histograms showing the distribution of 'fréquences(MHZ)' and 'Largeur du canal(MHZ)' across various BTS nodes.
+Provider Distribution: Bar charts depicting the number of BTS nodes deployed by each 'Fournisseur'.
+Geographical Coverage Map: A map visualization plotting 'Location' of each BTS node, indicating network coverage and density.
+For the Linked Data (linked-* files):
+
+Capacity Analysis: Graphs showing 'Capacité-en-Mb/s' for each link, highlighting the bandwidth capacity of the network.
+Type-de-liaison Distribution: A pie chart or bar graph showcasing the distribution of different 'Type-de-liaison' across the network.
+Frequency Band Usage: Histograms or bar charts displaying the usage of different 'Bande-de-fréquences-et-fréquence-centrale'.
+Link Provider Analysis: A bar chart showing the number of links installed by each 'Fournisseur' to illustrate the diversity of equipment providers.
+
+
+
+
+
+
+namess
+
+Mattel Dashboard:
+
+Network Performance Over Time:
+
+"Signal Strength and Network Availability Timeline"
+"Network Downtime and Usage Over Time"
+Geographical Coverage:
+
+"Mattel Network Coverage Map"
+"Regional Signal Strength Distribution"
+Customer Service Metrics:
+
+"Customer Complaint Types Breakdown"
+"Resolution Rates by Complaint Category"
+Data Usage Trends:
+
+"Customer Data Consumption Patterns"
+"Trends in Data Usage Over Time"
+Mauritel Dashboard:
+
+Call Quality Metrics:
+
+"Call Drop and Success Rate Trends"
+"Voice Quality Metrics Over Time"
+Data Transmission Rates:
+
+"Evolution of Data Transmission Speeds"
+"Throughput Rates Across the Network"
+Network Utilization:
+
+"Network Load Heatmap"
+"Peak vs. Off-Peak Utilization Analysis"
+Infrastructure Health:
+
+"BTS Station Health Monitor"
+"Telecom Infrastructure Status Report"
+Chinguitel Dashboard:
+
+Subscriber Growth:
+
+"Chinguitel Subscriber Growth Chart"
+"Historical Subscriber Number Growth"
+Service Outages:
+
+"Network Outage Timeline and Duration"
+"Service Interruption Log"
+Revenue and Usage Analysis:
+
+"Correlation of Revenue and Usage Patterns"
+"Revenue Streams and Data Usage Insights"
+QoS Compliance Tracking:
+
+"Quality of Service Standards Compliance"
+"QoS Compliance Scorecard"
+
+
+
+Suggested Visualizations for the Dashboard:
+Frequency Band Distribution:
+
+Type: Pie Chart or Bar Chart
+Purpose: Show the distribution of frequency bands (fréquences(MHZ)) used across different NodeB stations.
+NodeB Deployment Over Time:
+
+Type: Line Chart or Area Chart
+Purpose: Display the deployment of NodeB stations over time (Date_mise_en_service).
+Provider Distribution:
+
+Type: Bar Chart
+Purpose: Visualize the number of stations associated with each equipment provider (Fournisseur).
+Operator Comparison:
+
+Type: Bar Chart
+Purpose: Compare the number of NodeB stations for each operator (operateur).
+Geographical Distribution:
+
+Type: Coordinate Map or Heatmap
+Purpose: Show the geographical distribution of NodeB stations (location).
+Bandwidth Utilization:
+
+Type: Histogram or Bar Chart
+Purpose: If Largeur_du_canal(MHZ) is adjusted to keyword, visualize the utilization of different channel bandwidths.
+Data Table:
+
+Type: Data Table
+Purpose: Provide a detailed view of the raw data, including all key fields.
+Additional Considerations:
+Interactive Elements: Use Kibana's interactive features like filters and drill-downs to allow users to explore specific aspects of the data.
+Dashboard Layout: Organize the visualizations logically. Group related metrics and ensure the dashboard is easy to read and interpret.
+Testing and Iteration: Once you've created your dashboard, test it with end-users and iterate based on feedback to ensure it meets the needs of your audience.
+
+
+
+
+
+Creating detailed visualizations in Kibana for your dashboard involves several steps for each type of visualization. Here's a guide for creating each suggested visualization based on your Elasticsearch data:
+
+1.Frequency Band Distribution
+Pie Chart or Bar Chart
+Steps:
+Go to Kibana Visualize: Open Kibana and navigate to the "Visualize" application.
+Create New Visualization: Click on "Create New Visualization" and select either "Pie Chart" or "Bar Chart".
+Select Index Pattern: Choose your telecom-* index pattern.
+Configure the Aggregation:
+For a Pie Chart: Use "Split Slices" and select the Terms aggregation for the fréquences(MHZ) field.
+For a Bar Chart: Set the X-axis to use a Terms aggregation on the fréquences(MHZ) field.
+Adjust Settings: Set the size of the buckets to capture all distinct frequency bands. You might also want to order by count to see the most used bands first.
+Save Visualization: Give it a descriptive name and save.
+2. NodeB Deployment Over Time
+Line Chart or Area Chart
+Steps:
+
+Create New Visualization: Choose "Line Chart" or "Area Chart".
+Select Index Pattern: Use telecom-*.
+Set Y-Axis: Use Count to show the number of NodeB stations.
+Set X-Axis: Use Date Histogram on the Date_mise_en_service field.
+Customize: Adjust the interval (e.g., monthly, yearly) to suit your data's density.
+Save Visualization.
+3. Provider Distribution
+Bar Chart
+Steps:
+
+Create New Visualization: Choose "Bar Chart".
+Select Index Pattern: Use telecom-*.
+Configure Axes:
+Y-Axis: Set to Count.
+X-Axis: Use Terms aggregation on Fournisseur.
+Adjust Settings: As needed for clarity.
+Save Visualization.
+4. Operator Comparison
+Bar Chart
+Steps:
+
+Create New Visualization: Choose "Bar Chart".
+Select Index Pattern: Use telecom-*.
+Configure Axes:
+Y-Axis: Set to Count.
+X-Axis: Use Terms aggregation on operateur.
+Save Visualization.
+5. Geographical Distribution
+Coordinate Map or Heatmap
+Steps:
+
+Create New Visualization: Choose "Coordinate Map" or "Heatmap".
+Select Index Pattern: Use telecom-* with geospatial data (location).
+Configure: Set the field to location and choose the appropriate map type.
+Save Visualization.
+6. Bandwidth Utilization
+Histogram or Bar Chart
+Steps:
+
+Create New Visualization: Choose "Histogram" or "Bar Chart" (if Largeur_du_canal(MHZ) is a keyword type).
+Select Index Pattern: Use telecom-*.
+Configure Axes:
+Y-Axis: Set to Count.
+X-Axis: Use Terms aggregation on Largeur_du_canal(MHZ).
+Save Visualization.
+7. Data Table
+Data Table
+Steps:
+
+Create New Visualization: Choose "Data Table".
+Select Index Pattern: Use telecom-*.
+Configure Metrics and Buckets: Add the fields you want to display.
+Save Visualization.
+Final Steps for Dashboard Creation
+Create Dashboard: Go to the "Dashboard" application in Kibana and create a new dashboard.
+Add Visualizations: Add each of the saved visualizations to your dashboard.
+Arrange and Resize: Position and resize each visualization on your dashboard for optimal display and analysis.
+Save Dashboard: Save your dashboard with a descriptive name.
+Remember, the creation of effective visualizations and dashboards is often an iterative process. You may need to adjust and refine your visualizations based on the insights you gain and the feedback you receive from users.
+
+
+
+--------------------------------------00000000000000000000------------------
+
+To create the visualizations in Kibana for your "Mauritania Telecom Insights" dashboard, follow these detailed steps for each visualization:
+
+Spectrum Allocation Overview
+
+Visualization: Vertical Bar Chart
+Setup: Use the Lens feature to drag and drop your operator field to the Horizontal axis and the fréquences(MHZ) as buckets on the Vertical axis. Aggregate the frequencies using the Count metric to show the number of allocations per band, stacked by operator.
+Technology Deployment Timeline
+
+Visualization: Line Chart or Timelion
+Setup: Create a new visualization using the Lens or Timelion. Select the activation_date for the X-axis using the Date Histogram. Use the technology field to split the series and display each technology's deployment over time by each operator.
+Network Coverage Map
+
+Visualization: Maps
+Setup: Use Kibana Maps and add a new layer using the documents containing location data. Use the term join feature to differentiate the operator and technology fields, displaying each operator's coverage area and technology type.
+Operational Sites Growth
+
+Visualization: Area Chart
+Setup: In Lens, select the activation_date for the X-axis and choose the Count of records for the Y-axis to represent the number of sites. Split the series by operator to compare growth over time.
+Frequency vs. Technology Usage
+
+Visualization: Bubble Chart (Custom Visualization)
+Setup: Since Kibana natively doesn't support bubble charts directly, you can approximate this with a Lens visualization using the fréquences(MHZ) and technology fields. Alternatively, consider using Vega for custom visualizations if you're comfortable with it.
+Additional Tips:
+
+Filters and Controls: Add input controls for dynamic filtering by operator, technology, and fréquences(MHZ) to allow interactive exploration of the data.
+Data Preparation: Ensure your Elasticsearch index patterns are correctly mapped, especially for date fields and geolocation fields, to enable the appropriate visualizations.
+Customization: Leverage the customization options in Kibana Lens and Maps to tailor the appearance of your visualizations, including colors, labels, and tooltips, to make the dashboard intuitive and informative.
